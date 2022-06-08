@@ -1,0 +1,21 @@
+.nav{
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.links{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
