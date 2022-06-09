@@ -2,27 +2,31 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import people from "../public/people.jpg"
+import contentAR from "../locales/ar" 
+import contentBR from "../locales/br"
+import { useContext } from 'react'
+import { Language } from './_app'
 
-const Home: NextPage = () => {
+const Landing: NextPage = () => {
+  const locale = useContext(Language)
+  const content = locale === "es" ? contentAR : contentBR
+
   return (
     <div className='landing'>
       <Head>
         <title>Digital House</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content='En Digital House somos una organización 𝘦𝘥𝘵𝘦𝘤𝘩 que ofrece 
-        distintas opciones de formación 100% a distancia sobre programación, diseño UX, datos y 
-        marketing digital. Entre ellas encontrarás una carrera, cursos intensivos, capacitaciones a 
-        empresas, programas con escuelas y más.' />
+        <meta name="description" content={content.description} />
         <link rel="shortcut icon" href="/logo.png" />
       </Head>
       <div>
-       <h1>More than education</h1>
-       <h2>Share experiences</h2>
-       <button>Apply now</button>
+       <h1>{content.title}</h1>
+       <h2>{content.subtitle}</h2>
+       <button>{content.buttonText}</button>
       </div>
-     <Image src={people} alt="people" width={800} height={800} />
+     <Image src={people} alt="people" width={700} height={700} />
     </div>
   )
 }
 
-export default Home
+export default Landing
